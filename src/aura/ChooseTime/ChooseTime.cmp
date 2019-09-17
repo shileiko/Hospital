@@ -1,0 +1,7 @@
+<!--
+ - Created by Admin on 16.09.2019.
+ -->
+
+<aura:component description="ChooseTime">
+    Time
+</aura:component>

@@ -1,0 +1,27 @@
+<!--
+ - Created by Admin on 16.09.2019.
+ -->
+
+<aura:component description="MainController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <div class="slds-button-group btn-lg" role="group">
+        <lightning:button onclick="{!c.chooseDoctor}"
+                          class="slds-button"
+                          variant="brand"
+                          title="Choose doctor" iconPosition="left"
+                          label="Choose doctor" iconName="action:clone"/>
+        <lightning:button onclick="{!c.chooseTime}"
+                          class="slds-button"
+                          variant="brand"
+                          title="Choose time" iconPosition="left"
+                          label="Choose time" iconName="action:defer"/>
+    </div>
+
+    <div aura:id="ChooseDoctor"
+         class="ChooseDoctor"/>
+
+    <div aura:id="ChooseTime"
+         class="ChooseTime"/>
+
+</aura:component>

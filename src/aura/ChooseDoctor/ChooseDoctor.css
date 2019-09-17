@@ -1,0 +1,19 @@
+/**
+ * Created by Admin on 16.09.2019.
+ */
+
+.THIS.slds-form-element{
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.THIS .slds-form-element__label{
+    font-size: large;
+}
+
+.THIS .btn-c1{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 7%;
+}
