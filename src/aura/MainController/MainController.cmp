@@ -5,17 +5,27 @@
 <aura:component description="MainController"
                 implements="flexipage:availableForAllPageTypes">
 
+    <aura:attribute name="patientId"
+                    type="String"
+                    default="a012v00002JkoUpAAJ"/>
+
     <div class="slds-button-group btn-lg" role="group">
         <lightning:button onclick="{!c.chooseDoctor}"
                           class="slds-button"
                           variant="brand"
+                          value="{!v.patientId}"
                           title="Choose doctor" iconPosition="left"
                           label="Choose doctor" iconName="action:clone"/>
         <lightning:button onclick="{!c.chooseTime}"
                           class="slds-button"
-                          variant="brand"
+                          variant="brand" value="{!v.patientId}"
                           title="Choose time" iconPosition="left"
                           label="Choose time" iconName="action:defer"/>
+        <lightning:button onclick="{!c.viewDetails}"
+                          class="slds-button"
+                          variant="brand" value="{!v.patientId}"
+                          title="My appointments" iconPosition="left"
+                          label="My appointments" iconName="action:user"/>
     </div>
 
     <div aura:id="ChooseDoctor"
@@ -23,5 +33,8 @@
 
     <div aura:id="ChooseTime"
          class="ChooseTime"/>
+
+    <div aura:id="PatientView"
+         class="PatientView"/>
 
 </aura:component>

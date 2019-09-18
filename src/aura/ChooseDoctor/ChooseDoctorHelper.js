@@ -4,9 +4,9 @@
 
 ({
     doSearchHelper : function (component, event, helper) {
-        var position = component.find('position').get('v.value');
-        var name = component.find('doctorName').get('v.value');
-        var action = component.get("c.chooseDoctors");
+        let position = component.find('position').get('v.value');
+        let name = component.find('doctorName').get('v.value');
+        let action = component.get("c.chooseDoctors");
 
         action.setParams({
             docName : name,
@@ -14,7 +14,7 @@
         });
 
         action.setCallback(this,function(chooseDoc){
-            var state = chooseDoc.getState();
+            let state = chooseDoc.getState();
             console.log(state);
             if(state == "SUCCESS"){
                 console.log('a.getReturnValue', chooseDoc.getReturnValue());
@@ -23,6 +23,21 @@
                 alert('Error in calling server side action');
             }
         });
+        $A.enqueueAction(action);
+    },
+
+    orderHelper : function (component, event, helper) {
+        let appointmentId = event.getSource().get("v.value");
+        let action = component.get("c.orderAppointment");
+        let patId = component.get("v.patientId");
+
+        action.setParams({
+            patientId: patId,
+            appId: appointmentId
+        });
+
+        alert("You order that appointment");
+
         $A.enqueueAction(action);
     }
 });

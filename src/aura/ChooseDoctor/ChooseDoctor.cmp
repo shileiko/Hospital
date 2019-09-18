@@ -9,6 +9,9 @@
     <aura:attribute type="List"
                     name="DoctorList"/>
 
+    <aura:attribute name="patientId"
+                    type="String"/>
+
     <div class="slds-form-element slds-form-element__control">
         <lightning:input aura:id="doctorName"
                          label="Doctor name: "
@@ -29,17 +32,21 @@
                           variant="success"
                           label="Search"/>
 
-        <table class="slds-table slds-table--bordered slds-table--striped slds-table--cell-buffer slds-table--fixed-layout tab">
+        <table class="slds-table slds-table--bordered
+                      slds-table--striped
+                      slds-table--cell-buffer
+                      slds-table--fixed-layout tab">
             <tbody>
             <aura:iteration items="{!v.DoctorList}" var="doc">
                 <tr>
                     <td>
                         <div class="slds-truncate">
-                            <lightning:formattedDateTime value="{!doc.Appointment_Time__c}"
-                                                         timeZone="{!$Locale.timezone}" year="numeric"
-                                                         month="numeric" day="numeric"
-                                                         hour="2-digit" minute="2-digit"
-                                                         timeZoneName="short" hour12="false"/>
+                            {!doc.Name}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate">
+                            <ui:outputDateTime value="{!doc.Appointment_time__c}"/>
                         </div>
                     </td>
                     <td>
@@ -55,11 +62,10 @@
             </aura:iteration>
             </tbody>
         </table>
+        <lightning:button onclick="{!c.closeComp}"
+                          class="btn-c1"
+                          label="Close"
+                          variant="destructive"/>
     </div>
-
-    <lightning:button onclick="{!c.closeComp}"
-                      class="btn-c1"
-                      label="Close"
-                      variant="destructive"/>
 
 </aura:component>

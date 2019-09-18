@@ -2,6 +2,63 @@
  - Created by Admin on 16.09.2019.
  -->
 
-<aura:component description="ChooseTime">
-    Time
+<aura:component description="ChooseTime"
+                controller="ChooseDoctorController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="todayDate" type="Date" />
+    <aura:attribute name="AppointmentList" type="List" />
+    <aura:attribute name="patId" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds-form-element slds-form-element__control">
+        <lightning:input aura:id="dateAppointment"
+                         type="date"
+                         required="true"
+                         label="Appointment time: "
+                         name="Appointment"
+                         min="{!v.todayDate}"
+                         value=""/>
+        <lightning:button onclick="{!c.doSearchByTime}"
+                          class="btn-c1"
+                          title="Search"
+                          variant="success"
+                          label="Search"/>
+
+        <table class="slds-table slds-table--bordered
+                      slds-table--striped
+                      slds-table--cell-buffer
+                      slds-table--fixed-layout tab">
+            <tbody>
+            <aura:iteration items="{!v.AppointmentList}" var="al">
+                <tr>
+                    <td>
+                        <div class="slds-truncate">
+                            Doc. {!al.Doctor__r.Name}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate">
+                            <ui:outputDateTime value="{!al.Appointment_time__c}"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate">
+                            <lightning:button variant="neutral"
+                                              label="Order"
+                                              title="Order"
+                                              value="{!al.Id}"
+                                              onclick="{!c.orderByTime}"/>
+                        </div>
+                    </td>
+                </tr>
+            </aura:iteration>
+            </tbody>
+        </table>
+        <lightning:button onclick="{!c.closeComp}"
+                          class="btn-c1"
+                          label="Close"
+                          variant="destructive"/>
+    </div>
 </aura:component>

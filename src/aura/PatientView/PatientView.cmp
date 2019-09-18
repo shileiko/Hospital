@@ -1,0 +1,49 @@
+<!--
+ - Created by Admin on 17.09.2019.
+ -->
+
+<aura:component description="PatientView"
+                controller="PatientViewController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="AppointmentList"
+                    type="List"/>
+
+    <aura:attribute type="String"
+                    name="patientId"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="mainForm">
+        <div class="bgd">
+            <div class="form-to-popup">
+                <ui:outputText value="Your appointments" class="header"/>
+                <div class="conInfo">
+                    <table class="slds-table slds-table--bordered
+                                  slds-table--striped
+                                  slds-table--cell-buffer
+                                  slds-table--fixed-layout tab">
+                        <tbody>
+                        <aura:iteration items="{!v.AppointmentList}" var="appointment">
+                            <tr>
+                                <td>Doc. {!appointment.Doctor__r.Name}</td>
+                                <td><ui:outputDateTime value="{!appointment.Appointment_time__c}"/></td>
+                                <td>
+                                    <lightning:button onclick="{!c.deleteAppointment}"
+                                                      value="{!appointment.Id}"
+                                                      class="slds-button_text-destructive"
+                                                      label="Delete"/>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                        </tbody>
+                    </table>
+                </div>
+                <lightning:button onclick="{!c.closePopup}"
+                                  variant="destructive"
+                                  label="Close"/>
+            </div>
+        </div>
+    </div>
+
+</aura:component>
