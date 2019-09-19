@@ -45,6 +45,7 @@
 
     viewDetails: function (component, event, helper) {
         let patientId = component.get("v.patientId");
+        console.log(patientId);
         $A.createComponent(
             "c:PatientView",
             {

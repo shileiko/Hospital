@@ -1,0 +1,7 @@
+<!--
+ - Created by Admin on 19.09.2019.
+ -->
+
+<aura:event type="APPLICATION" description="LoginFormEvent">
+    <aura:attribute name="PatientId" type="String"/>
+</aura:event>

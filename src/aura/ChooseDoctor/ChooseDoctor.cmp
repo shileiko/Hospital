@@ -16,6 +16,7 @@
         <lightning:input aura:id="doctorName"
                          label="Doctor name: "
                          name="doctorName"
+                         required="true"
                          type="text"
                          maxlength="25"
                          value=""/>

@@ -20,7 +20,7 @@ public with sharing class PatientViewController {
     }
 
     @AuraEnabled
-    public static void deleteAppointment(String la) {
+    public static void deleteAppointmentController(String la) {
         Appointment__c appointment = [
                 SELECT
                         Id,

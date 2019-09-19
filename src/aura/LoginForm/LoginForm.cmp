@@ -1,0 +1,39 @@
+<!--
+ - Created by Admin on 19.09.2019.
+ -->
+
+<aura:component description="LoginForm"
+                controller="LoginController"
+                implements="flexipage:availableForAllPageTypes">
+
+    <aura:registerEvent type="c:LoginFormEvent" name="PatientLogin"/>
+
+    <div class="mainDiv">
+        <lightning:layout horizontalAlign="center" verticalAlign="center">
+            <div class="slds-modal__container slds-modal__content slds-p-around--medium">
+                <lightning:layoutItem>
+                    <form class="slds-form-element_stacked">
+                        <lightning:input aura:id="patientLogin"
+                                         label="Login"
+                                         type="text"
+                                         placeholder="Your name"
+                                         minlength="1"
+                                         maxlength="30"
+                                         required="true"/>
+                        <lightning:input aura:id="pass"
+                                         label="Password"
+                                         type="password"
+                                         minlength="6"
+                                         maxlength="12"
+                                         required="true"/>
+                        <lightning:layoutItem class="slds-modal__footer">
+                            <lightning:button label="Login" class="slds-button"
+                                              onclick="{!c.loginClick}"
+                                              iconPosition="left"/>
+                        </lightning:layoutItem>
+                    </form>
+                </lightning:layoutItem>
+            </div>
+        </lightning:layout>
+    </div>
+</aura:component>

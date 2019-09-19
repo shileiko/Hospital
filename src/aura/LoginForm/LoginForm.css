@@ -1,0 +1,15 @@
+/**
+ * Created by Admin on 19.09.2019.
+ */
+
+.THIS.mainDiv {
+    margin-top: 10%;
+}
+
+.THIS .slds-modal__container {
+    background-color: aliceblue;
+}
+
+.THIS .slds-modal__footer {
+    margin-top: 1%;
+}

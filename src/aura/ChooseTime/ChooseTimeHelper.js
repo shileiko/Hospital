@@ -5,10 +5,12 @@
 ({
     doSearchByTimeHelper: function (component, event, helper) {
         let dT = component.find("dateAppointment").get("v.value");
-        let action = component.get("c.chooseTime");
+        let action = component.get("c.chooseDoctors");
 
         action.setParams({
-            data : dT
+            data : dT,
+            docName : null,
+            pos: null
         });
 
         action.setCallback(this,function(chooseTime){

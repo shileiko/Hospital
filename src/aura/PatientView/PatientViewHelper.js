@@ -24,17 +24,15 @@
     },
 
     deleteAppointmentHelper: function (component, event, helper) {
-        let action = component.get("c.deleteAppointment");
+        var act = component.get("c.deleteAppointmentController");
         let appointmentId = event.getSource().get("v.value");
 
-        console.log(appointmentId);
-
-        action.setParams({
-            "la" : JSON.stringify(appointmentId)
+        act.setParams({
+            la : appointmentId
         });
 
-        console.log(action.la);
+        alert("You delete appointment");
 
-        $A.enqueueAction(action);
+        $A.enqueueAction(act);
     }
 });

@@ -3,5 +3,5 @@
  -->
 
 <aura:application description="MainApp" extends="force:slds">
-    <c:MainController/>
+    <c:MainComponent/>
 </aura:application>

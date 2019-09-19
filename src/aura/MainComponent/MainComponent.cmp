@@ -1,0 +1,15 @@
+<!--
+ - Created by Admin on 19.09.2019.
+ -->
+
+<aura:component description="MainComponent">
+    <aura:handler event="c:LoginFormEvent" action="{!c.handlerPatient}"/>
+    <aura:attribute type="Boolean" name="flagLoggedIn" default="false"/>
+    <aura:attribute type="String" name="patId" />
+
+    <c:LoginForm/>
+
+    <aura:if isTrue="{!v.flagLoggedIn}">
+        <c:MainController patientId="{!v.patId}"/>
+    </aura:if>
+</aura:component>

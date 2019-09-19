@@ -6,8 +6,7 @@
                 implements="flexipage:availableForAllPageTypes">
 
     <aura:attribute name="patientId"
-                    type="String"
-                    default="a012v00002JkoUpAAJ"/>
+                    type="String"/>
 
     <div class="slds-button-group btn-lg" role="group">
         <lightning:button onclick="{!c.chooseDoctor}"

@@ -26,7 +26,7 @@
                         <tbody>
                         <aura:iteration items="{!v.AppointmentList}" var="appointment">
                             <tr>
-                                <td>Doc. {!appointment.Doctor__r.Name}</td>
+                                <td>{!appointment.Doctor__r.Name}</td>
                                 <td><ui:outputDateTime value="{!appointment.Appointment_time__c}"/></td>
                                 <td>
                                     <lightning:button onclick="{!c.deleteAppointment}"
